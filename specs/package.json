@@ -1,0 +1,19 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "resolve.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.19.0",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "js-yaml": "^3.12.2",
+    "json-refs": "^3.0.12",
+    "multi-file-swagger": "^2.3.0",
+    "through2": "^4.0.2"
+  }
+}

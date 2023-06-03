@@ -1,0 +1,31 @@
+description: 'Internal Server Error'
+content:
+  application/json:
+    schema:
+      type: object
+      title: '500 Internal Server Error'
+      description: '500 Internal Server Error エラーレスポンス'
+      required:
+        - code
+      properties:
+        code:
+          type: string
+          title: 'エラーコード'
+          enum:
+            - E500000
+          example: 'E500000'
+          description: |
+            開発者向けのエラーコード
+
+            ```
+            E500000:
+              サーバーにてエラーが発生したことを表すエラーコードです。
+            ```
+        message:
+          type: string
+          title: 'エラーメッセージ'
+          description: '開発者向けのエラーメッセージ'
+          example: 'Internal Server Error'
+    example:
+      code: 'E500000'
+      mesasge: 'Internal Server Error'

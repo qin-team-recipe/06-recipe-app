@@ -1,0 +1,30 @@
+tags:
+  - 企業
+summary: 企業削除
+description: 企業の削除
+parameters:
+  - name: id
+    in: path
+    required: true
+    description: '企業ID'
+    schema:
+      type: integer
+  - name: session_token
+    in: cookie
+    required: true
+    description: 'セッショントークン'
+    schema:
+      type: string
+      minimum: 1
+responses:
+  204:
+    description: |
+      No Content
+  400:
+    $ref: '../../../components/error-response/response-bad-request.yaml'
+  401:
+    $ref: '../../../components/error-response/response-unauthorized.yaml'
+  404:
+    $ref: '../../../components/error-response/response-not-found.yaml'
+  500:
+    $ref: '../../../components/error-response/response-internal-serverError.yaml'

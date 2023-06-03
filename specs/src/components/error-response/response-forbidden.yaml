@@ -1,0 +1,31 @@
+description: 'Forbidden'
+content:
+  application/json:
+    schema:
+      type: object
+      title: '403 Forbidden'
+      description: '403 Forbidden エラーレスポンス'
+      required:
+        - code
+      properties:
+        code:
+          type: string
+          title: 'エラーコード'
+          enum:
+            - E403000
+          example: 'E403000'
+          description: |
+            開発者向けのエラーコード
+
+            ```
+            E403000:
+              リクエストが許可されていないことを表すエラーコードです。
+            ```
+        message:
+          type: string
+          title: 'エラーメッセージ'
+          description: '開発者向けのエラーメッセージ'
+          example: 'Invalid Access'
+    example:
+      code: 'E403000'
+      mesasge: 'Invalid Access'

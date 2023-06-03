@@ -1,0 +1,31 @@
+description: 'Conflict'
+content:
+  application/json:
+    schema:
+      type: object
+      title: '409 Conflict'
+      description: '409 Conflict エラーレスポンス'
+      required:
+        - code
+      properties:
+        code:
+          type: string
+          title: 'エラーコード'
+          enum:
+            - E409000
+          example: 'E409000'
+          description: |
+            開発者向けのエラーコード
+
+            ```
+            E409000:
+              リソース登録に重複が存在することを表すエラーコードです。
+            ```
+        message:
+          type: string
+          title: 'エラーメッセージ'
+          description: '開発者向けのエラーメッセージ'
+          example: 'Conflict'
+    example:
+      code: 'E409000'
+      mesasge: 'Conflict'

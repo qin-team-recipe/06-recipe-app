@@ -1,0 +1,45 @@
+tags:
+  - 企業
+summary: 企業登録
+description: 企業の登録
+parameters:
+  - name: session_token
+    in: cookie
+    required: true
+    description: 'セッショントークン'
+    schema:
+      type: string
+      minimum: 1
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        title: '企業登録リクエスト'
+        description: '企業登録リクエスト'
+        required:
+          - companyName
+        properties:
+          companyName:
+            title: '企業名'
+            type: string
+            description: |
+              企業名
+            example: 'ヤマト運輸株式会社'
+responses:
+  201:
+    description: |
+      CREATED
+    content:
+      application/json:
+        schema:
+          $ref: '../../../components/base-data/company.yaml'
+  400:
+    $ref: '../../components/error-response/response-bad-request.yaml'
+  401:
+    $ref: '../../components/error-response/response-unauthorized.yaml'
+  409:
+    $ref: '../../components/error-response/response-conflict.yaml'
+  500:
+    $ref: '../../components/error-response/response-internal-serverError.yaml'

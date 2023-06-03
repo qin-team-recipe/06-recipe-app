@@ -1,0 +1,43 @@
+tags:
+  - セッション
+summary: ログイン
+description: ログイン
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        title: 'ログインリクエスト'
+        description: 'ログインリクエスト'
+        required:
+          - email
+          - password
+        properties:
+          email:
+            title: 'メールアドレス'
+            type: string
+            description: |
+              メールアドレス
+            example: 'suzuki.taro123@example.com'
+          password:
+            title: 'パスワード'
+            type: string
+            description: |
+              パスワード
+            example: 'p@ssw0rd'
+responses:
+  201:
+    description: |
+      CREATED
+    headers:
+      session_token:
+        description: セッショントークン
+        schema:
+          type: string
+  400:
+    $ref: '../../components/error-response/response-bad-request.yaml'
+  404:
+    $ref: '../../components/error-response/response-not-found.yaml'
+  500:
+    $ref: '../../components/error-response/response-internal-serverError.yaml'

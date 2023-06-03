@@ -1,0 +1,31 @@
+description: 'Unauthorized'
+content:
+  application/json:
+    schema:
+      type: object
+      title: '401 Unauthorized'
+      description: '401 Unauthorized エラーレスポンス'
+      required:
+        - code
+      properties:
+        code:
+          type: string
+          title: 'エラーコード'
+          enum:
+            - E401000
+          example: 'E401000'
+          description: |
+            開発者向けのエラーコード
+
+            ```
+            E401000:
+              リクエストに権限がないことを表すエラーコードです。
+            ```
+        message:
+          type: string
+          title: 'エラーメッセージ'
+          description: '開発者向けのエラーメッセージ'
+          example: 'Unauthorized'
+    example:
+      code: 'E401000'
+      mesasge: 'Unauthorized'

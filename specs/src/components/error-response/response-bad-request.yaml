@@ -1,0 +1,31 @@
+description: 'Bad Request'
+content:
+  application/json:
+    schema:
+      type: object
+      title: '400 Bad Request'
+      description: '400 Bad Request エラーレスポンス'
+      required:
+        - code
+      properties:
+        code:
+          type: string
+          title: 'エラーコード'
+          enum:
+            - E400000
+          example: 'E400000'
+          description: |
+            開発者向けのエラーコード
+
+            ```
+            E400000:
+              リクエストのパラメータに不正が存在することを表すエラーコードです。
+            ```
+        message:
+          type: string
+          title: 'エラーメッセージ'
+          description: '開発者向けのエラーメッセージ'
+          example: 'Invalid Parameter'
+    example:
+      code: 'E400000'
+      mesasge: 'Invalid Parameter'
