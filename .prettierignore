@@ -1,0 +1,6 @@
+.vscode
+.next
+.vercel
+node_modules
+public
+package-lock.json
