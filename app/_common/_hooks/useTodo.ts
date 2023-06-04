@@ -1,14 +1,8 @@
 import { fetcher } from '../_features/fetcher';
 import useSWR from 'swr';
 
-export const useTodo = <T>(
-  id: string | number,
-  favoriteCount: number
-): T | null => {
-  const { data, error } = useSWR<T>(
-    `/todos/${id}?favoriteCount=${favoriteCount}`,
-    fetcher
-  );
+export const useTodo = <T>(id: string | number, favoriteCount: number): T | null => {
+  const { data, error } = useSWR<T>(`/todos/${id}?favoriteCount=${favoriteCount}`, fetcher);
 
   // エラーが発生した場合は例外を投げる
   if (error !== null && error !== undefined) {

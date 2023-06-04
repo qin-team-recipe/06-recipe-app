@@ -10,11 +10,7 @@ export const metadata: Metadata = {
   description: PAGE_METAS.DESCRIPTION,
 };
 
-const RootLayout = ({
-  children,
-}: {
-  children: React.ReactNode;
-}): JSX.Element => {
+const RootLayout = ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (
     <html lang="ja">
       <body className={inter.className}>{children}</body>
