@@ -1,10 +1,7 @@
 import { ENV } from '../_constants/env';
 import { isString } from './typeGuards';
 
-export const fetcher = async <T>(
-  pathname: string,
-  revalidateSpan: number = 10
-): Promise<T> => {
+export const fetcher = async <T>(pathname: string, revalidateSpan: number = 10): Promise<T> => {
   const hostname: string | undefined = ENV.API_HOST;
 
   // ホスト名が文字列でない場合は例外を投げる
