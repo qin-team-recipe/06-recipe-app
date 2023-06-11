@@ -11,7 +11,6 @@
     "prisma:push": "prisma db push"
   },
   "dependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
     "@prisma/client": "^4.15.0",
     "@types/node": "20.1.7",
     "@types/react": "18.2.6",
@@ -32,9 +31,6 @@
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-n": "^15.7.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-tailwindcss": "^3.12.1",
     "prisma": "^4.15.0",
