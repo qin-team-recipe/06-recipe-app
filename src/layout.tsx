@@ -11,6 +11,4 @@ const RootLayout = ({ children }: { children: React.ReactNode }): JSX.Element =>
   );
 };
 
-export const runtime = 'edge';
-
 export default RootLayout;
