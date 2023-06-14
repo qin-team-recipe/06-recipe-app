@@ -10,7 +10,8 @@
     "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prisma:push": "prisma db push"
+    "prisma:push": "prisma db push",
+    "component-gen": "plop"
   },
   "dependencies": {
     "@prisma/client": "^4.15.0",
@@ -44,6 +45,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-storybook": "^0.6.12",
     "eslint-plugin-tailwindcss": "^3.12.1",
+    "plop": "^3.1.2",
     "prisma": "^4.15.0",
     "react": "^18.2.0",
     "storybook": "^7.0.20",
