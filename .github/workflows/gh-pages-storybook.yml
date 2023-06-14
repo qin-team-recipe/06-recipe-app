@@ -1,0 +1,54 @@
+name: storybook deploy on github pages
+
+on:
+  push:
+    branches: ['main']
+
+  pull_request:
+    branches: ['main']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # 特定のラベル(ui)が付与された場合のみ、処理を続行する
+    if: contains(github.event.pull_request.labels.*.name, 'ui')
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js v18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        id: node_modules_cache_id
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+      - run: echo '${{ toJSON(steps.node_modules_cache_id.outputs) }}'
+
+      # キャッシュがhitした場合は npm install をスキップする
+      - if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
+        run: npm install
+
+      # インストールされているパッケージを一番上の階層のみを表示
+      - run: npm ls --depth=0
+
+      - name: Build package
+        run: npm run build
+
+      - name: Build storybook
+        run: npm run build-storybook -o ./dist/storybook
+
+      - name: Deploy
+        id: deploy-sb
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public/storybook
