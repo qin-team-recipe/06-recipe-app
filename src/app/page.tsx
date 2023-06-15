@@ -1,12 +1,13 @@
-import { UserTodos } from "./UserTodos";
+import Sidebar from '@/components/Sidebar/Sidebar'
+import TopScreen from '@/components/TopScreen/TopScreen'
 
 const Home = () => {
   return (
-    <>
-      {/* @ts-expect-error Server Component */}
-      <UserTodos />
-    </>
-  );
-};
+    <div className="flex justify-center h-screen max-w-4xl m-auto">
+      <Sidebar />
+      <TopScreen />
+    </div>
+  )
+}
 
-export default Home;
+export default Home
