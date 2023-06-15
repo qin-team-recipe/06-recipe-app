@@ -2,24 +2,45 @@ module.exports = function (
   /** @type {import('plop').NodePlopAPI} */
   plop
 ) {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const fs = require('fs');
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const path = require('path');
+
+  const BASE_DIR = 'src';
+
+  const files = fs.readdirSync(BASE_DIR);
+  const dirListOptions = files
+    .filter((file) => fs.statSync(path.join(BASE_DIR, file)).isDirectory())
+    .map((dir) => ({
+      name: dir,
+      value: dir,
+    }));
+
   plop.setGenerator('component', {
     description: 'Create a Component.',
     prompts: [
       {
-        type: 'input',
-        name: 'name',
-        message: 'What is your component name?',
+        type: 'list',
+        name: 'baseDir',
+        message: 'What is baseDir ? - src/{baseDir}',
+        choices: dirListOptions,
       },
       {
         type: 'input',
         name: 'parentPath',
-        message: 'src/components/{path please}? If you do not need it, just press Enter.',
+        message: 'src/{baseDir}/{path please}? If you do not need it, just press Enter.',
+      },
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is your component name? - src/{baseDir}/{component name}?',
       },
     ],
     actions: function (data) {
       const componentBasePath = data.parentPath
-        ? 'src/components/{{parentPath}}'
-        : 'src/components';
+        ? 'src/{{baseDir}}/{{parentPath}}'
+        : 'src/{{baseDir}}';
 
       return [
         {
