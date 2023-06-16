@@ -3,11 +3,31 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: 'hsl(var(--secondary-foreground))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        border: 'hsl(var(--border))',
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        surface: {
+          primary: 'hsl(var(--surface-primary))',
+          secondary: 'hsl(var(--surface-secondary))',
+          tertiary: 'hsl(var(--surface-tertiary))',
+        },
+        grey: {
+          DEFAULT: 'hsl(var(--grey))',
+          foreground: 'hsl(var(--grey-foreground))',
+          alpha: 'hsl(var(--grey-alpha))',
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [require('windy-radix-palette')],
 };

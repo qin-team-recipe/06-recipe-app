@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+
+    :root {
+        --primary: var(--tomato9);
+        --primary-foreground: var(--tomato11);
+
+        --secondary: var(--blue11);
+
+        /* 全体の背景色・surface、iconの上に重ねるテキストカラーとして使用 */
+        --background: 0 0% 100%;
+        /* テキストカラー・アイコンの協調色として使用 */
+        --foreground: var(--mauve12);
+
+        /* ボーダーカラーとして使用 */
+        --border: var(--mauve7);
+
+        /* 未選択・無効・完了 状態にある要素のカラーに使用 */
+        --destructive: var(--mauve8);
+        --destructive-foreground: var(--mauve9);
+
+        /* 画像上に重ねるテキストカラー、ナビゲーションバーの背景色として使用 */
+        --surface-primary: var(--mauve1);
+        /* 主にベタ塗りの背景を想定。inputフォームの背景色・タブバーの背景色など  */
+        --surface-secondary: var(--mauve4);
+        --surface-tertiary: var(--mauve6);
+
+        /* アイコンと隣接する際に、補足情報を扱うテキストカラー部分に使用。 */
+        --grey: var(--mauve10);
+        /* 補足情報を扱うテキストカラー or アイコンカラーに使用。 */
+        --grey-foreground: var(--mauve11);
+        /* 画像上に重ねる背景色として使用(テキストカラーとして使用しない) */
+        --grey-alpha: var(--mauveA10);
+
+        @media (prefers-color-scheme: dark) {
+            --background: 0 0% 0%;
+        }
+    }
+}
