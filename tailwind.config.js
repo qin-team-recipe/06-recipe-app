@@ -1,33 +1,37 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+// const { blue, mauve, mauveA, tomato } = require('@radix-ui/colors');
+// const colors = require('tailwindcss/colors');
+
+// const customColors = {
+//   primary: {
+//     DEFAULT: tomato.tomato9,
+//     foreground: tomato.tomato11,
+//   },
+//   secondary: blue.blue11,
+//   background: colors.white,
+//   foreground: mauve.mauve12,
+//   border: mauve.mauve7,
+//   destructive: {
+//     DEFAULT: mauve.mauve8,
+//     foreground: mauve.mauve9,
+//   },
+//   surface: {
+//     primary: mauve.mauve1,
+//     secondary: mauve.mauve4,
+//     tertiary: mauve.mauve6,
+//   },
+//   grey: {
+//     DEFAULT: mauve.mauve10,
+//     foreground: mauve.mauve11,
+//     alpha: mauveA.mauveA10,
+//   },
+// };
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
-    extend: {
-      colors: {
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: 'hsl(var(--secondary-foreground))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        border: 'hsl(var(--border))',
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        surface: {
-          primary: 'hsl(var(--surface-primary))',
-          secondary: 'hsl(var(--surface-secondary))',
-          tertiary: 'hsl(var(--surface-tertiary))',
-        },
-        grey: {
-          DEFAULT: 'hsl(var(--grey))',
-          foreground: 'hsl(var(--grey-foreground))',
-          alpha: 'hsl(var(--grey-alpha))',
-        },
-      },
-    },
+    extend: {},
   },
-  plugins: [require('windy-radix-palette')],
+  plugins: [require('tailwindcss-radix-colors')],
 };
