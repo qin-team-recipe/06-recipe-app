@@ -2,7 +2,11 @@
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        base: '0px -2px 4px rgba(0, 0, 0, 0.12)',
+      },
+    },
   },
   plugins: [require('tailwindcss-radix-colors')],
 };
