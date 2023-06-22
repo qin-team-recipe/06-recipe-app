@@ -1,10 +1,10 @@
 'use client';
 
+import { Icons } from '@/components/Icons';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { tv } from 'tailwind-variants';
 import { UrlObject } from 'url';
-import { Icons } from '../Icons/Icon';
 
 type NavLavel = 'さがす' | 'お気に入り' | '買い物リスト';
 

@@ -1,5 +1,5 @@
+import { Icons } from '@/components/Icons';
 import Link from 'next/link';
-import { Icons } from '../Icons/Icon';
 
 type NavigationProps = {
   children: React.ReactNode;
