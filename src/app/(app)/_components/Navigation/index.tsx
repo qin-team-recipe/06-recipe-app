@@ -1,3 +1,3 @@
-export * from './ButtomNavBar';
-export * from './ButtomNavItem';
+export * from './BottomNavBar';
+export * from './BottomNavItem';
 export * from './Navigation';

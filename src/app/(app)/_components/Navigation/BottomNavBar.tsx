@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { tv } from 'tailwind-variants';
 
-type ButtonNavBarProps = {
+type BottomNavBarProps = {
   children: React.ReactNode;
 };
 
@@ -17,10 +17,10 @@ const bottomNavBar = tv({
   },
 });
 
-export const ButtomNavBar: React.FC<ButtonNavBarProps> = ({ children }) => {
-  const pathName = usePathname();
+export const BottomNavBar: React.FC<BottomNavBarProps> = ({ children }) => {
+  const pathname = usePathname();
 
-  const isShow = pathName === '/';
+  const isShow = pathname === '/';
 
   return <ul className={bottomNavBar({ isShow })}>{children}</ul>;
 };

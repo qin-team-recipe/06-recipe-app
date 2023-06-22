@@ -8,7 +8,7 @@ import { Icons } from '../Icons/Icon';
 
 type NavLavel = 'さがす' | 'お気に入り' | '買い物リスト';
 
-type ButtonNavItemProps = {
+type BottomNavItemProps = {
   label: NavLavel;
   href: string | UrlObject;
 };
@@ -33,10 +33,10 @@ const icon = tv({
   },
 });
 
-export const ButtomNavItem: React.FC<ButtonNavItemProps> = ({ label, href }) => {
-  const pathName = usePathname();
+export const BottomNavItem: React.FC<BottomNavItemProps> = ({ label, href }) => {
+  const pathname = usePathname();
 
-  const isActive = pathName === href;
+  const isActive = pathname === href;
 
   const toggleIconFunc = () => {
     switch (label) {
