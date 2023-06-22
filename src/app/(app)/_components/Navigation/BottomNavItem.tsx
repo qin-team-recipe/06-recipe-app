@@ -1,19 +1,24 @@
 'use client';
 
-import { Icons } from '@/components/Icons';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { tv } from 'tailwind-variants';
-import { UrlObject } from 'url';
 
-type NavLavel = 'さがす' | 'お気に入り' | '買い物リスト';
+type LabelType = 'search' | 'favorite' | 'cart';
+
+const LABELS: Record<LabelType, string> = {
+  search: 'さがす',
+  favorite: 'お気に入り',
+  cart: '買い物リスト',
+} as const;
 
 type BottomNavItemProps = {
-  label: NavLavel;
-  href: string | UrlObject;
+  type: LabelType;
+  href: string;
+  icon: React.ReactNode;
 };
 
-const text = tv({
+const textStyle = tv({
   base: 'text-[0.6rem] sm:text-base',
   variants: {
     isActive: {
@@ -23,7 +28,7 @@ const text = tv({
   },
 });
 
-const icon = tv({
+const iconStyle = tv({
   base: 'h-6 w-6 stroke-1 sm:stroke-1',
   variants: {
     isActive: {
@@ -33,23 +38,10 @@ const icon = tv({
   },
 });
 
-export const BottomNavItem: React.FC<BottomNavItemProps> = ({ label, href }) => {
+export const BottomNavItem = ({ type, href, icon }: BottomNavItemProps) => {
   const pathname = usePathname();
 
   const isActive = pathname === href;
-
-  const toggleIconFunc = () => {
-    switch (label) {
-      case 'さがす':
-        return <Icons.Search className={icon({ isActive })} />;
-      case 'お気に入り':
-        return <Icons.Fav className={icon({ isActive })} />;
-      case '買い物リスト':
-        return <Icons.Cart className={icon({ isActive })} />;
-      default:
-        return null;
-    }
-  };
 
   return (
     <li className="flex-1">
@@ -61,8 +53,8 @@ export const BottomNavItem: React.FC<BottomNavItemProps> = ({ label, href }) => 
         sm:py-2 sm:pl-1.5 sm:pr-5 hover:sm:bg-mauve-4 active:sm:bg-mauve-5
         "
       >
-        {toggleIconFunc()}
-        <span className={text({ isActive })}>{label}</span>
+        <div className={iconStyle({ isActive })}>{icon}</div>
+        <span className={textStyle({ isActive })}>{LABELS[type]}</span>
       </Link>
     </li>
   );

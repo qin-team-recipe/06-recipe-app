@@ -17,7 +17,7 @@ const bottomNavBar = tv({
   },
 });
 
-export const BottomNavBar: React.FC<BottomNavBarProps> = ({ children }) => {
+export const BottomNavBar = ({ children }: BottomNavBarProps) => {
   const pathname = usePathname();
 
   const isShow = pathname === '/';
