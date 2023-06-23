@@ -4,16 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { tv } from 'tailwind-variants';
 
-type LabelType = 'search' | 'favorite' | 'cart';
-
-const LABELS: Record<LabelType, string> = {
-  search: 'さがす',
-  favorite: 'お気に入り',
-  cart: '買い物リスト',
-} as const;
-
 type BottomNavItemProps = {
-  type: LabelType;
+  label: string;
   href: string;
   icon: React.ReactNode;
 };
@@ -38,7 +30,7 @@ const iconStyle = tv({
   },
 });
 
-export const BottomNavItem = ({ type, href, icon }: BottomNavItemProps) => {
+export const BottomNavItem = ({ label, href, icon }: BottomNavItemProps) => {
   const pathname = usePathname();
 
   const isActive = pathname === href;
@@ -54,7 +46,7 @@ export const BottomNavItem = ({ type, href, icon }: BottomNavItemProps) => {
         "
       >
         <div className={iconStyle({ isActive })}>{icon}</div>
-        <span className={textStyle({ isActive })}>{LABELS[type]}</span>
+        <span className={textStyle({ isActive })}>{label}</span>
       </Link>
     </li>
   );
