@@ -22,7 +22,7 @@ export const RequireSignIn = () => {
   return (
     <div className="mt-2">
       <div className="flex justify-center">
-        <Image src={imagePath()} alt={'ログイン要求画像'} width={200} height={200} />
+        <Image src={imagePath()} alt="ログイン要求画像" width={200} height={200} />
       </div>
       <p className="mb-2 text-center font-bold">ログインをお願いします</p>
       <p className="mb-8 text-center">こちらの機能を利用するにはログインが必要です</p>
