@@ -1,5 +1,7 @@
 import { BottomNavBar, BottomNavItem, Navigation } from '@/app/(app)/_components/Navigation';
 import { Icons } from '@/components/Icons';
+import { NextAuthProvider } from '@/components/NextAuthProvider/NextAuthProvider';
+import { SignInFilter } from '../SignInFilter';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +14,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         </BottomNavBar>
       </Navigation>
       <main className="flex-1 overflow-hidden border-x-0 border-mauve-6 sm:border-x-[1px]">
-        {children}
+        <NextAuthProvider>
+          <SignInFilter>{children}</SignInFilter>
+        </NextAuthProvider>
       </main>
     </div>
   );
