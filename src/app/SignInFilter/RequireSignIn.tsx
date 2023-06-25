@@ -26,11 +26,11 @@ export const RequireSignIn = () => {
       </div>
       <p className="mb-2 text-center font-bold">ログインをお願いします</p>
       <p className="mb-8 text-center">こちらの機能を利用するにはログインが必要です</p>
-      <div className="flex justify-center">
-        <div className="pr-1">
+      <div className="flex flex-col items-center justify-center gap-2.5 sm:flex-row">
+        <div className="px-1">
           <GoogleSignInButton />
         </div>
-        <div className="pl-1">
+        <div className="px-1">
           <AppleSignInButton />
         </div>
       </div>
