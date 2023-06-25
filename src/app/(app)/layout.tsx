@@ -1,4 +1,3 @@
-'use client';
 import { BottomNavBar, BottomNavItem, Navigation } from '@/app/(app)/_components/Navigation';
 import { Icons } from '@/components/Icons';
 import { NextAuthProvider } from '@/components/NextAuthProvider/NextAuthProvider';
