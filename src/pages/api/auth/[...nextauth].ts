@@ -1,8 +1,8 @@
 import NextAuth, { type NextAuthOptions } from 'next-auth';
 
 // Prisma adapter for NextAuth, optional and can be removed
-import { prisma } from '@/server/db';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import { prisma } from 'libs/prisma';
 import GoogleProvider from 'next-auth/providers/google';
 
 export const authOptions: NextAuthOptions = {
