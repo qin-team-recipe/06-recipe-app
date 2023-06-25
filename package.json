@@ -33,6 +33,7 @@
     "eslint-config-next": "13.4.2",
     "eslint-plugin-unused-imports": "^2.0.0",
     "jotai": "^2.1.0",
+    "lucide-react": "^0.246.0",
     "next": "13.4.2",
     "postcss": "8.4.23",
     "prettier": "^2.8.8",

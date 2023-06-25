@@ -1,4 +1,4 @@
-import { UserTodos } from "./UserTodos";
+import { UserTodos } from '../UserTodos';
 
 const Home = () => {
   return (
