@@ -1,0 +1,1 @@
+export { selectUserByEmail } from './userRepository';
