@@ -13,7 +13,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <BottomNavItem label="買い物リスト" href="/cart" icon={<Icons.Cart />} />
         </BottomNavBar>
       </Navigation>
-      <main className="flex-1 overflow-hidden border-x-0 border-mauve-6 sm:border-x-[1px]">
+      <main className="flex-1 overflow-hidden border-x-0 border-mauve-6 pb-20 sm:border-x-[1px] sm:pb-16">
         <NextAuthProvider>
           <SignInFilter>{children}</SignInFilter>
         </NextAuthProvider>
