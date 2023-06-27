@@ -1,19 +1,19 @@
 import { ChefCard } from '@/app/(app)/_components/ChefCard';
-import { HeaderRoot } from '@/app/(app)/_components/HeaderRoot';
 import { HorizontalScrollArea } from '@/app/(app)/_components/HorizontalScrollArea';
 import { RecipeCard } from '@/app/(app)/_components/RecipeCard';
+import { TopBar } from '@/app/(app)/_components/TopBar';
 import { Icons } from '@/components/Icons';
 import Link from 'next/link';
 
 export const Fav = () => {
   return (
     <>
-      <HeaderRoot layoutType={{ layoutType: 'center' }}>
+      <TopBar layoutType={{ layoutType: 'center' }}>
         <h2 className="w-fit font-bold text-mauve-12">お気に入り</h2>
         <Link href="/setting" className="absolute inset-y-0 right-0 w-fit p-3">
           <Icons.Setting className="h-5 w-5 stroke-1 sm:stroke-1" />
         </Link>
-      </HeaderRoot>
+      </TopBar>
       <div className="flex flex-col space-y-12 pt-5">
         <section>
           <h3 className="mx-4 text-xl font-bold">シェフ</h3>

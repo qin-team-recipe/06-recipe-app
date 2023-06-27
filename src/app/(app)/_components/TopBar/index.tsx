@@ -15,13 +15,13 @@ const header = tv({
   },
 });
 
-type HeaderLayout = VariantProps<typeof header>;
+type TopBarLayout = VariantProps<typeof header>;
 
-type HeaderRootProps = {
+type TopBarProps = {
   children: React.ReactNode;
-  layoutType?: HeaderLayout;
+  layoutType?: TopBarLayout;
 };
 
-export const HeaderRoot = ({ children, layoutType }: HeaderRootProps) => {
+export const TopBar = ({ children, layoutType }: TopBarProps) => {
   return <header className={header(layoutType)}>{children}</header>;
 };
