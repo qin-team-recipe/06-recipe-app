@@ -12,10 +12,10 @@ const TrpcTrialPage = () => {
   if (!session) return <div>ログインしてください</div>;
 
   // getUserByEmail を呼び出す
-  const getUserByEmailQuery = trpc.user.getUserByUserId.useQuery({ userId: session.user.id });
+  const getUserByUserIdQuery = trpc.user.getUserByUserId.useQuery({ userId: session.user.id });
 
   const getUser = async () => {
-    const { data: user } = await getUserByEmailQuery;
+    const { data: user } = await getUserByUserIdQuery;
     setUserName(user?.name ?? '');
   };
 
