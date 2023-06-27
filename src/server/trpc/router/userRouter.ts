@@ -1,10 +1,10 @@
-import { getUserByEmailSchema } from '@/schema';
-import { getUserByEmail } from '../service/userService';
-import { createTRPCRouter, protectedProcedure } from '../trpc';
+import { getUserByUserIdSchema } from '@/schema';
+import { createTRPCRouter, protectedProcedure } from '..';
+import { getUserByUserId } from '../service';
 
 export const userRouter = createTRPCRouter({
-  getUserByEmail: protectedProcedure.input(getUserByEmailSchema).query(async ({ input }) => {
-    const user = await getUserByEmail(input.email);
+  getUserByUserId: protectedProcedure.input(getUserByUserIdSchema).query(async ({ input }) => {
+    const user = await getUserByUserId(input.userId);
     return user;
   }),
 });

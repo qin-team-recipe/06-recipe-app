@@ -1,1 +1,1 @@
-export { selectUserByEmail } from './userRepository';
+export { selectUserByUserId } from './userRepository';

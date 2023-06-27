@@ -1,1 +1,1 @@
-export { getUserByEmail } from './userService';
+export { getUserByUserId } from './userService';

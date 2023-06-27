@@ -1,1 +1,1 @@
-export { getUserByEmailSchema } from './getUserByEmailSchema';
+export { getUserByUserIdSchema } from './getUserByUserIdSchema';

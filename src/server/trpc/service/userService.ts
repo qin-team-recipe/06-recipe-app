@@ -1,5 +1,5 @@
-import { selectUserByEmail } from '../repository';
+import { selectUserByUserId } from '../repository';
 
-export const getUserByEmail = async (email: string) => {
-  return await selectUserByEmail(email);
+export const getUserByUserId = async (userId: string) => {
+  return await selectUserByUserId(userId);
 };
