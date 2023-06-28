@@ -1,9 +1,9 @@
-import { ChefCard } from '@/app/(app)/_components/ChefCard';
-import { HorizontalScrollArea } from '@/app/(app)/_components/HorizontalScrollArea';
-import { RecipeCard } from '@/app/(app)/_components/RecipeCard';
 import { TopBar } from '@/app/(app)/_components/TopBar';
 import { Icons } from '@/components/Icons';
 import Link from 'next/link';
+import { ChefList } from '../_components/ChefList';
+import { HorizontalScrollArea } from '../_components/HorizontalScrollArea';
+import { RecipeList } from '../_components/RecipeList';
 
 export const Fav = () => {
   return (
@@ -15,20 +15,13 @@ export const Fav = () => {
         </Link>
       </TopBar>
       <div className="flex flex-col space-y-12 pt-5">
-        <section>
+        <section className="space-y-3">
           <h3 className="mx-4 text-xl font-bold">シェフ</h3>
           <HorizontalScrollArea>
-            <div className="mt-3 flex flex-row gap-x-4 px-4">
-              {Array(10)
-                .fill(null)
-                .map((_, index) => (
-                  // eslint-disable-next-line react/jsx-key
-                  <ChefCard.Small id={index.toString()} name="山田シェフ" />
-                ))}
-            </div>
+            <ChefList type={{ shape: 'circle' }} />
           </HorizontalScrollArea>
         </section>
-        <section>
+        <section className="space-y-3">
           <div className="flex flex-row items-center justify-between px-4">
             <h3 className="text-xl font-bold text-mauve-12">新着レシピ</h3>
             <Link href="/new-recipes">
@@ -36,32 +29,20 @@ export const Fav = () => {
             </Link>
           </div>
           <HorizontalScrollArea>
-            <div className="mt-3 flex h-32 flex-row gap-x-4 px-4">
-              {Array(10)
-                .fill(null)
-                .map((_, index) => (
-                  // eslint-disable-next-line react/jsx-key
-                  <RecipeCard.Small id={index.toString()} name="定番レシピA" />
-                ))}
+            <div className="flex flex-row gap-x-4 px-4">
+              <RecipeList type={{ type: 'small' }} />
             </div>
           </HorizontalScrollArea>
         </section>
-        <section>
+        <section className="space-y-3">
           <div className="flex flex-row items-center justify-between px-4">
             <h3 className="text-xl font-bold text-mauve-12">お気に入りレシピ</h3>
             <Link href="/fav/my">
               <span className="text-base font-bold text-mauve-9">マイレシピをみる</span>
             </Link>
           </div>
-          <div className="mt-3">
-            <div className="grid grid-cols-2 gap-4 px-4">
-              {Array(10)
-                .fill(null)
-                .map((_, index) => (
-                  // eslint-disable-next-line react/jsx-key
-                  <RecipeCard.Middle id={index.toString()} name="定番レシピA" />
-                ))}
-            </div>
+          <div className="grid grid-cols-2 gap-4 px-4">
+            <RecipeList />
           </div>
         </section>
       </div>
