@@ -1,6 +1,7 @@
 import { BottomNavBar, BottomNavItem, Navigation } from '@/app/(app)/_components/Navigation';
 import { Icons } from '@/components/Icons';
 import { NextAuthProvider } from '@/components/NextAuthProvider/NextAuthProvider';
+import { TrpcProvider } from 'libs/trpc/TrpcProvider';
 import { SignInFilter } from '../SignInFilter';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -15,7 +16,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       </Navigation>
       <main className="flex-1 overflow-hidden border-x-0 border-mauve-6 sm:border-x-[1px]">
         <NextAuthProvider>
-          <SignInFilter>{children}</SignInFilter>
+          <TrpcProvider>
+            <SignInFilter>{children}</SignInFilter>
+          </TrpcProvider>
         </NextAuthProvider>
       </main>
     </div>
