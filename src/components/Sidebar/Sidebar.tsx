@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Sidebar: React.FC = () => {
-  // ここにSidebarのコードを書く
   return (
     <div className="w-1/4">
       レシピアプリロゴ
