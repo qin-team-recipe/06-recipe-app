@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  dev-mysql:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3309:3306
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: recipe_password
+      MYSQL_DATABASE: recipe_db
+      MYSQL_USER: recipe_user
+      MYSQL_PASSWORD: recipe_password
+    restart: always
+    networks:
+      - lesson
+networks:
+  lesson:
