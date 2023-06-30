@@ -1,11 +1,7 @@
-import { NextPage } from 'next';
+import { Fav } from '@/app/(app)/_pages/Fav';
 
-const FavPage: NextPage = () => {
-  return (
-    <div>
-      <h1>お気に入りページ（仮）</h1>
-    </div>
-  );
+const Home = () => {
+  return <Fav />;
 };
 
-export default FavPage;
+export default Home;
