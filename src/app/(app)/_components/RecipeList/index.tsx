@@ -1,7 +1,7 @@
 import { RecipeListItem, RecipeListItemVariant } from '../RecipeListItem';
 
 type RecipeListProps = {
-  variant?: RecipeListItemVariant['size'];
+  size?: RecipeListItemVariant['size'];
 };
 
 // TODO:ダミーデータ & プロパティも適当なので削除する
@@ -32,12 +32,12 @@ const dummyRecipeData = [
   },
 ];
 
-export const RecipeList = ({ variant }: RecipeListProps) => {
+export const RecipeList = ({ size }: RecipeListProps) => {
   return (
     <>
       {dummyRecipeData.map(({ id, name, description, favorite }) => (
         <RecipeListItem
-          variant={variant}
+          size={size}
           key={id}
           id={id}
           name={name}

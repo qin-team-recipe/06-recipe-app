@@ -18,7 +18,7 @@ export const Fav = () => {
         <section className="space-y-3">
           <h3 className="mx-4 text-xl font-bold">シェフ</h3>
           <HorizontalScrollArea>
-            <ChefList variant="circle" />
+            <ChefList shape="circle" />
           </HorizontalScrollArea>
         </section>
         <section className="space-y-3">
@@ -30,7 +30,7 @@ export const Fav = () => {
           </div>
           <HorizontalScrollArea>
             <div className="flex flex-row gap-x-4 px-4">
-              <RecipeList variant="small" />
+              <RecipeList size="small" />
             </div>
           </HorizontalScrollArea>
         </section>

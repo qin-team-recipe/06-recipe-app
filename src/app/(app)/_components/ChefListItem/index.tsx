@@ -29,23 +29,23 @@ const chefListItem = tv({
 export type ChefListItemVariant = VariantProps<typeof chefListItem>;
 
 type ChefListItemProps = {
-  variant?: ChefListItemVariant['shape'];
+  shape?: ChefListItemVariant['shape'];
   id: string;
   name: string;
   image?: string;
 };
 
-export const ChefListItem = ({ id, name, variant = 'circle' }: ChefListItemProps) => {
-  const { base, imgWrapper, img, label } = chefListItem({ shape: variant });
+export const ChefListItem = ({ id, name, shape = 'circle' }: ChefListItemProps) => {
+  const { base, imgWrapper, img, label } = chefListItem({ shape });
   return (
     <div className={base()}>
       <Link href={`/chef/${id}`} className={imgWrapper()}>
         <div className={img()}>
           {/* <Image src={imageSrc} fill style={{ objectFit: 'cover' }} alt="logo" /> */}
-          {variant === 'rectangle' && <div className={label()}>{name}</div>}
+          {shape === 'rectangle' ? <div className={label()}>{name}</div> : null}
         </div>
       </Link>
-      {variant === 'circle' && <div className={label()}>{name}</div>}
+      {shape === 'circle' ? <div className={label()}>{name}</div> : null}
     </div>
   );
 };

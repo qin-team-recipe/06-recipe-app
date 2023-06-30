@@ -21,7 +21,7 @@ const recipeListItem = tv({
 export type RecipeListItemVariant = VariantProps<typeof recipeListItem>;
 
 type RecipeListItemProps = {
-  variant?: RecipeListItemVariant['size'];
+  size?: RecipeListItemVariant['size'];
   id: string;
   name: string;
   description: string;
@@ -29,20 +29,14 @@ type RecipeListItemProps = {
   image?: string;
 };
 
-export const RecipeListItem = ({
-  id,
-  variant,
-  name,
-  description,
-  favorite,
-}: RecipeListItemProps) => {
-  const { wrapper, base, img } = recipeListItem({ size: variant });
+export const RecipeListItem = ({ id, size, name, description, favorite }: RecipeListItemProps) => {
+  const { wrapper, base, img } = recipeListItem({ size });
   return (
     <Link href={`/recipe/${id}`} className={wrapper()}>
       <div className={base()}>
         <div className={img()}>
           {/* <Image src={image} fill style={{ objectFit: 'cover' }} alt={name} /> */}
-          {favorite > 0 && <FavCount favorite={favorite} />}
+          {favorite > 0 ? <FavCount favorite={favorite} /> : null}
         </div>
       </div>
       <div className="mt-2 line-clamp-2 text-xs font-bold text-mauve-12">{name}</div>
