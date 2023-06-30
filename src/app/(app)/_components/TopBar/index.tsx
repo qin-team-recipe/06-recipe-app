@@ -15,13 +15,13 @@ const header = tv({
   },
 });
 
-type TopBarLayout = VariantProps<typeof header>;
+type TopBarVariant = VariantProps<typeof header>;
 
 type TopBarProps = {
   children: React.ReactNode;
-  layoutType?: TopBarLayout;
+  variant?: TopBarVariant['layoutType'];
 };
 
-export const TopBar = ({ children, layoutType }: TopBarProps) => {
-  return <header className={header(layoutType)}>{children}</header>;
+export const TopBar = ({ children, variant }: TopBarProps) => {
+  return <header className={header({ layoutType: variant })}>{children}</header>;
 };

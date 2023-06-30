@@ -8,7 +8,7 @@ import { RecipeList } from '../_components/RecipeList';
 export const Fav = () => {
   return (
     <>
-      <TopBar layoutType={{ layoutType: 'center' }}>
+      <TopBar variant="center">
         <h2 className="w-fit font-bold text-mauve-12">お気に入り</h2>
         <Link href="/setting" className="absolute inset-y-0 right-0 w-fit p-3">
           <Icons.Setting className="h-5 w-5 stroke-1 sm:stroke-1" />
@@ -18,7 +18,7 @@ export const Fav = () => {
         <section className="space-y-3">
           <h3 className="mx-4 text-xl font-bold">シェフ</h3>
           <HorizontalScrollArea>
-            <ChefList type={{ shape: 'circle' }} />
+            <ChefList variant="circle" />
           </HorizontalScrollArea>
         </section>
         <section className="space-y-3">
@@ -30,7 +30,7 @@ export const Fav = () => {
           </div>
           <HorizontalScrollArea>
             <div className="flex flex-row gap-x-4 px-4">
-              <RecipeList type={{ type: 'small' }} />
+              <RecipeList variant="small" />
             </div>
           </HorizontalScrollArea>
         </section>

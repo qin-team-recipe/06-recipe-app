@@ -1,7 +1,7 @@
 import { ChefListItem, ChefListItemVariant } from '../ChefListItem';
 
 type ChefListProps = {
-  type?: ChefListItemVariant;
+  variant?: ChefListItemVariant['shape'];
 };
 
 // TODO:ダミーデータ & プロパティも適当なので削除する
@@ -32,11 +32,11 @@ const dummyChefData = [
   },
 ];
 
-export const ChefList = ({ type = { shape: 'rectangle' } }: ChefListProps) => {
+export const ChefList = ({ variant }: ChefListProps) => {
   return (
     <div className="flex flex-row gap-x-4 px-4">
       {dummyChefData.map(({ id, name }) => (
-        <ChefListItem type={type} key={id} id={id} name={name} />
+        <ChefListItem variant={variant} key={id} id={id} name={name} />
       ))}
     </div>
   );

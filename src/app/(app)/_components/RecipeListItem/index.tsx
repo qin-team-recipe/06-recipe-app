@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Fragment } from 'react';
 import { VariantProps, tv } from 'tailwind-variants';
 import { FavCount } from '../FavCount';
 
@@ -10,7 +9,7 @@ const recipeListItem = tv({
     img: 'relative aspect-square bg-mauve-4',
   },
   variants: {
-    type: {
+    size: {
       small: {
         wrapper: 'w-32',
         img: 'h-full w-full',
@@ -22,7 +21,7 @@ const recipeListItem = tv({
 export type RecipeListItemVariant = VariantProps<typeof recipeListItem>;
 
 type RecipeListItemProps = {
-  type?: RecipeListItemVariant;
+  variant?: RecipeListItemVariant['size'];
   id: string;
   name: string;
   description: string;
@@ -30,14 +29,20 @@ type RecipeListItemProps = {
   image?: string;
 };
 
-export const RecipeListItem = ({ id, type, name, description, favorite }: RecipeListItemProps) => {
-  const { wrapper, base, img } = recipeListItem(type);
+export const RecipeListItem = ({
+  id,
+  variant,
+  name,
+  description,
+  favorite,
+}: RecipeListItemProps) => {
+  const { wrapper, base, img } = recipeListItem({ size: variant });
   return (
     <Link href={`/recipe/${id}`} className={wrapper()}>
       <div className={base()}>
         <div className={img()}>
           {/* <Image src={image} fill style={{ objectFit: 'cover' }} alt={name} /> */}
-          {favorite > 0 ? <FavCount favorite={favorite} /> : <Fragment></Fragment>}
+          {favorite > 0 && <FavCount favorite={favorite} />}
         </div>
       </div>
       <div className="mt-2 line-clamp-2 text-xs font-bold text-mauve-12">{name}</div>

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Fragment } from 'react';
 import { VariantProps, tv } from 'tailwind-variants';
 
 const chefListItem = tv({
@@ -15,7 +14,7 @@ const chefListItem = tv({
         base: 'flex flex-col gap-y-1 w-20 overflow-hidden',
         imgWrapper: 'h-20 w-20 rounded-full',
         img: 'aspect-square bg-mauve-4',
-        label: 'text-center',
+        label: 'text-center truncate',
       },
       rectangle: {
         imgWrapper: 'h-52 w-40 rounded-2xl',
@@ -30,33 +29,23 @@ const chefListItem = tv({
 export type ChefListItemVariant = VariantProps<typeof chefListItem>;
 
 type ChefListItemProps = {
-  type: ChefListItemVariant;
+  variant?: ChefListItemVariant['shape'];
   id: string;
   name: string;
   image?: string;
 };
 
-export const ChefListItem = ({ id, name, type }: ChefListItemProps) => {
-  const { base, imgWrapper, img, label } = chefListItem(type);
+export const ChefListItem = ({ id, name, variant = 'circle' }: ChefListItemProps) => {
+  const { base, imgWrapper, img, label } = chefListItem({ shape: variant });
   return (
     <div className={base()}>
       <Link href={`/chef/${id}`} className={imgWrapper()}>
         <div className={img()}>
           {/* <Image src={imageSrc} fill style={{ objectFit: 'cover' }} alt="logo" /> */}
-          {type?.shape === 'rectangle' ? (
-            <div className={label()}>{name}</div>
-          ) : (
-            <Fragment></Fragment>
-          )}
+          {variant === 'rectangle' && <div className={label()}>{name}</div>}
         </div>
       </Link>
-      {type?.shape === 'circle' ? (
-        <div className={label()}>
-          <div className="truncate">{name}</div>
-        </div>
-      ) : (
-        <Fragment></Fragment>
-      )}
+      {variant === 'circle' && <div className={label()}>{name}</div>}
     </div>
   );
 };
