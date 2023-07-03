@@ -8,7 +8,7 @@ type BottomNavBarProps = {
 };
 
 const bottomNavBar = tv({
-  base: 'flex w-full py-0.5 shadow-base sm:flex-col sm:gap-2 sm:py-0 sm:shadow-none sm:mt-8',
+  base: 'flex w-full py-0.5 shadow-base sm:mt-8 sm:flex-col sm:gap-2 sm:py-0 sm:shadow-none',
   variants: {
     isShow: {
       true: 'flex',
