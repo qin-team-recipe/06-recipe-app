@@ -10,7 +10,4 @@
   "tailwindCSS.experimental.classRegex": [
     ["tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
-  "workbench.colorCustomizations": {
-    "terminal.background": "#464646"
-  }
 }
