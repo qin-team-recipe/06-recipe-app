@@ -1,7 +1,7 @@
 import { VariantProps, tv } from 'tailwind-variants';
 
 const header = tv({
-  base: 'flex h-12 items-center border-b border-mauve-6 relative',
+  base: 'relative flex h-12 items-center border-b border-mauve-6',
   variants: {
     layoutType: {
       center: 'justify-center',

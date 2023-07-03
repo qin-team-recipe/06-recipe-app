@@ -24,7 +24,7 @@ const iconStyle = tv({
   base: 'h-6 w-6 stroke-1 sm:stroke-1',
   variants: {
     isActive: {
-      true: 'stroke-tomato-11 sm:stroke-tomato-11 stroke-2 sm:stroke-2 ',
+      true: 'stroke-tomato-11 stroke-2 sm:stroke-tomato-11 sm:stroke-2 ',
       false: 'stroke-mauve-11 sm:stroke-mauve-12',
     },
   },

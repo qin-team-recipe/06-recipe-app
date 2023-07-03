@@ -11,16 +11,16 @@ const chefListItem = tv({
   variants: {
     shape: {
       circle: {
-        base: 'flex flex-col gap-y-1 w-20 overflow-hidden',
+        base: 'flex w-20 flex-col gap-y-1 overflow-hidden',
         imgWrapper: 'h-20 w-20 rounded-full',
         img: 'aspect-square bg-mauve-4',
-        label: 'text-center truncate',
+        label: 'truncate text-center',
       },
       rectangle: {
         imgWrapper: 'h-52 w-40 rounded-2xl',
         img: 'relative bg-mauve-11',
         label:
-          'z-50 absolute bottom-[10px] left-[8px] text-base text-mauve-1 font-semibold line-clamp-2',
+          'absolute bottom-[10px] left-[8px] z-50 line-clamp-2 text-base font-semibold text-mauve-1',
       },
     },
   },
