@@ -1,12 +1,9 @@
-import { UserTodos } from '../UserTodos';
+import TopScreen from '@/components/TopScreen/TopScreen'
 
 const Home = () => {
   return (
-    <>
-      {/* @ts-expect-error Server Component */}
-      <UserTodos />
-    </>
-  );
-};
+    <TopScreen />
+  )
+}
 
-export default Home;
+export default Home

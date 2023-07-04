@@ -9,5 +9,15 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-radix-colors')],
-};
+  plugins: [
+    require('tailwindcss-radix-colors'),
+    function ({ addComponents }) {
+      const newComponents = {
+        '.no-scrollbar::-webkit-scrollbar': {
+          display: 'none',
+        },
+      }
+      addComponents(newComponents)
+    },
+  ],
+}
