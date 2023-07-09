@@ -17,5 +17,5 @@ const myRecipeVisibilityBadge = tv({
 export const MyRecipeVisibilityBadge = ({ isPublic }: MyRecipeVisibilityBadgeProps) => {
   const text = isPublic ? '公開中のマイレシピ' : '非公開のマイレシピ';
 
-  return <div className={myRecipeVisibilityBadge({ isPublic: isPublic })}>{text}</div>;
+  return <div className={myRecipeVisibilityBadge({ isPublic })}>{text}</div>;
 };
