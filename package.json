@@ -67,7 +67,7 @@
     "typescript": "^5.0.4"
   },
   "engines": {
-    "node": "18.16.0",
+    "node": ">=18.16.0",
     "npm": ">=8.0.0",
     "yarn": "Don't use 'yarn'!!! Please use 'npm'!!!",
     "pnpm": "Don't use 'pnpm'!!! Please use 'npm'!!!"
