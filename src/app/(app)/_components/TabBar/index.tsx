@@ -1,28 +1,27 @@
 'use client';
 
 import * as Tabs from '@radix-ui/react-tabs';
-import { TabItemForTwo } from './TabItemForTwo';
+import { TabItem } from './TabItem';
 
 export type TabItem = {
-  tabValue: number;
   href: string;
   label: string;
 };
 
-export type TwoTabProps = {
+export type TabBarProps = {
   children: React.ReactNode;
   tablist: TabItem[];
 };
 
-export const TwoTab = ({ children, tablist }: TwoTabProps) => {
+export const TabBar = ({ children, tablist }: TabBarProps) => {
   return (
     <Tabs.Root className="flex w-full flex-col" defaultValue="tab1">
       <Tabs.List className="flex shrink-0 " asChild>
         <nav>
-          {tablist.map((item) => (
-            <TabItemForTwo key={item.tabValue} tabValue={`tab${item.tabValue}`} href={item.href}>
+          {tablist.map((item, index) => (
+            <TabItem key={index} tabValue={`tab${index + 1}`} href={item.href}>
               {item.label}
-            </TabItemForTwo>
+            </TabItem>
           ))}
         </nav>
       </Tabs.List>
