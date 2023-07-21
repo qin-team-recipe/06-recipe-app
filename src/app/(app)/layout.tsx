@@ -1,7 +1,7 @@
 import { BottomNavBar, BottomNavItem, Navigation } from '@/app/(app)/_components/Navigation';
 import { Icons } from '@/components/Icons';
 import { NextAuthProvider } from '@/components/NextAuthProvider/NextAuthProvider';
-import { TrpcProvider } from 'libs/trpc/TrpcProvider';
+import { TrpcProvider } from 'libs/trpc/trpcProvider';
 import { SignInFilter } from '../SignInFilter';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
