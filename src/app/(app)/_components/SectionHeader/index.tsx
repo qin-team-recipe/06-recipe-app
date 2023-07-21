@@ -6,7 +6,7 @@ type SectionHeaderProps = {
 };
 
 export const SectionHeader = ({ title, href }: SectionHeaderProps) => {
-  if (typeof href === 'undefined') {
+  if (!href) {
     return <h3 className="px-4 text-xl font-bold text-mauve-12">{title}</h3>;
   }
   return (
