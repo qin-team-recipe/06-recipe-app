@@ -4,6 +4,7 @@ import { Chef, Recipe } from '@/types';
 import Link from 'next/link';
 import { ChefList } from '../_components/ChefList';
 import { RecipeList } from '../_components/RecipeList';
+import { SectionHeader } from '../_components/SectionHeader';
 
 type FavProps = {
   chefData: Chef[];
@@ -21,25 +22,15 @@ export const Fav = ({ chefData, recipeData }: FavProps) => {
       </TopBar>
       <div className="flex flex-col space-y-12 pt-5">
         <section className="space-y-3">
-          <h3 className="mx-4 text-xl font-bold">シェフ</h3>
+          <SectionHeader title="シェフ" />
           <ChefList chefData={chefData} shape="circle" />
         </section>
         <section className="space-y-3">
-          <div className="flex flex-row items-center justify-between px-4">
-            <h3 className="text-xl font-bold text-mauve-12">新着レシピ</h3>
-            <Link href="/new-recipes">
-              <span className="text-base font-bold text-mauve-9">もっとみる</span>
-            </Link>
-          </div>
+          <SectionHeader title="新着レシピ" href="/new-recipes" />
           <RecipeList direction="horizontal" recipeData={recipeData} />
         </section>
         <section className="space-y-3">
-          <div className="flex flex-row items-center justify-between px-4">
-            <h3 className="text-xl font-bold text-mauve-12">お気に入りレシピ</h3>
-            <Link href="/fav/my">
-              <span className="text-base font-bold text-mauve-9">マイレシピをみる</span>
-            </Link>
-          </div>
+          <SectionHeader title="お気に入りレシピ" href="/fav/my" />
           <RecipeList direction="vertical" recipeData={recipeData} />
         </section>
       </div>
