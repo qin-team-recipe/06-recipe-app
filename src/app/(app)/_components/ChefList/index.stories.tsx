@@ -59,34 +59,34 @@ type Story = StoryObj<typeof ChefList>;
 export const HorizontalNoScroll: Story = {
   args: {
     shape: 'horizontalRectangle',
-    chefDate: dummyData.slice(0, 2),
+    chefData: dummyData.slice(0, 2),
   },
 };
 
 export const Horizontal: Story = {
   args: {
     shape: 'horizontalRectangle',
-    chefDate: dummyData,
+    chefData: dummyData,
   },
 };
 
 export const Vertical: Story = {
   args: {
     shape: 'verticalRectangle',
-    chefDate: dummyData,
+    chefData: dummyData,
   },
 };
 
 export const SmallNoScroll: Story = {
   args: {
     shape: 'circle',
-    chefDate: dummyData.slice(0, 2),
+    chefData: dummyData.slice(0, 2),
   },
 };
 
 export const Small: Story = {
   args: {
     shape: 'circle',
-    chefDate: dummyData,
+    chefData: dummyData,
   },
 };

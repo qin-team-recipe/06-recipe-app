@@ -7,10 +7,10 @@ import { HorizontalScrollArea } from '../_components/HorizontalScrollArea';
 import { RecipeList } from '../_components/RecipeList';
 
 type FavProps = {
-  chefDate: Chef[];
+  chefData: Chef[];
 };
 
-export const Fav = ({ chefDate }: FavProps) => {
+export const Fav = ({ chefData }: FavProps) => {
   return (
     <>
       <TopBar variant="center">
@@ -22,7 +22,7 @@ export const Fav = ({ chefDate }: FavProps) => {
       <div className="flex flex-col space-y-12 pt-5">
         <section className="space-y-3">
           <h3 className="mx-4 text-xl font-bold">シェフ</h3>
-          <ChefList chefDate={chefDate} shape="circle" />
+          <ChefList chefData={chefData} shape="circle" />
         </section>
         <section className="space-y-3">
           <div className="flex flex-row items-center justify-between px-4">

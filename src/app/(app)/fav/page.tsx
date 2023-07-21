@@ -39,7 +39,7 @@ const dummyChefData = [
 ];
 
 const Home = () => {
-  return <Fav chefDate={dummyChefData} />;
+  return <Fav chefData={dummyChefData} />;
 };
 
 export default Home;
