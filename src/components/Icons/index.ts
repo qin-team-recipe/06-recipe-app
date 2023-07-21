@@ -7,5 +7,5 @@ export const Icons = {
   Cart: ShoppingCart,
   Chef: ChefHat,
   Setting: Settings,
-  IconToolsKitchen2: IconToolsKitchen2,
+  ToolsKitchen2: IconToolsKitchen2,
 };
