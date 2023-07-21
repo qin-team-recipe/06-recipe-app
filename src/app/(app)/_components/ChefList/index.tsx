@@ -1,43 +1,37 @@
-import { ChefListItem, ChefListItemVariant } from '../ChefListItem';
+import { ChefListItem, ChefListItemVariant } from '@/app/(app)/_components/ChefListItem';
+import { ChefInfo } from '@/app/(app)/_components/ChefListItem/ChefInfo';
+import { HorizontalScrollArea } from '@/app/(app)/_components/HorizontalScrollArea';
 
-type ChefListProps = {
-  shape?: ChefListItemVariant['shape'];
+import { Chef } from '@/types';
+
+type HorizontalChefListProps = {
+  chefData: Chef[];
+  shape: ChefListItemVariant['shape'];
 };
 
-// TODO:ダミーデータ & プロパティも適当なので削除する
-const dummyChefData = [
-  {
-    id: '1',
-    name: '山田シェフ',
-  },
-  {
-    id: '2',
-    name: '山本シェフ',
-  },
-  {
-    id: '3',
-    name: '佐々木シェフ',
-  },
-  {
-    id: '4',
-    name: 'ピエールシェフ',
-  },
-  {
-    id: '5',
-    name: '田中シェフ',
-  },
-  {
-    id: '6',
-    name: '名前が長めのシェフ',
-  },
-];
+export const ChefList = ({ chefData, shape }: HorizontalChefListProps) => {
+  if (shape === 'verticalRectangle') {
+    return (
+      <div className="space-y-4">
+        {chefData.map(({ id, name, description, recipeCount }) => (
+          <>
+            <div className="flex h-28 w-full flex-row items-start gap-x-4">
+              <ChefListItem shape="verticalRectangle" key={id} id={id} name={name} />
+              <ChefInfo name={name} description={description} recipeCount={recipeCount} />
+            </div>
+          </>
+        ))}
+      </div>
+    );
+  }
 
-export const ChefList = ({ shape }: ChefListProps) => {
   return (
-    <div className="flex flex-row gap-x-4 px-4">
-      {dummyChefData.map(({ id, name }) => (
-        <ChefListItem shape={shape} key={id} id={id} name={name} />
-      ))}
-    </div>
+    <HorizontalScrollArea>
+      <div className="flex flex-row gap-x-4 px-4">
+        {chefData.map(({ id, name }) => (
+          <ChefListItem shape={shape} key={id} id={id} name={name} />
+        ))}
+      </div>
+    </HorizontalScrollArea>
   );
 };
