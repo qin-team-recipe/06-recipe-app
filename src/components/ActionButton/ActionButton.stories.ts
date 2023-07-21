@@ -12,16 +12,15 @@ export default meta;
 
 type Story = StoryObj<typeof ActionButton>;
 
-export const Active: Story = {
+export const Default: Story = {
   args: {
-    active: true,
     children: 'フォローする',
   },
 };
 
-export const Inactive: Story = {
+export const Outline: Story = {
   args: {
-    active: false,
+    theme: 'outline',
     children: 'フォローする',
   },
 };

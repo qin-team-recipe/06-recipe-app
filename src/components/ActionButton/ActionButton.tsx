@@ -1,24 +1,31 @@
 import { ComponentProps, ReactNode } from 'react';
-import { tv } from 'tailwind-variants';
+import { VariantProps, tv } from 'tailwind-variants';
 
 const button = tv({
   base: 'rounded px-3 py-1 text-center text-sm',
   variants: {
-    active: {
-      true: 'bg-tomato-9 text-mauve-1',
-      false: 'radius-1 border border-tomato-7 text-tomato-9',
+    theme: {
+      filled: 'bg-tomato-9 text-mauve-1',
+      outline: 'radius-1 border border-tomato-7 text-tomato-9',
     },
   },
 });
 
+export type Theme = VariantProps<typeof button>['theme'];
+
 export type ActionButtonProps = ComponentProps<'button'> & {
   children: ReactNode;
-  active: boolean;
+  theme?: Theme;
 };
 
-export const ActionButton = ({ children, active, className, ...props }: ActionButtonProps) => {
+export const ActionButton = ({
+  children,
+  theme = 'filled',
+  className,
+  ...props
+}: ActionButtonProps) => {
   return (
-    <button {...props} className={button({ active, className })}>
+    <button {...props} className={button({ theme, className })}>
       {children}
     </button>
   );
