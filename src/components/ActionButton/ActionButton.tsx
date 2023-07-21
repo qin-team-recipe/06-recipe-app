@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode } from 'react';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { VariantProps, tv } from 'tailwind-variants';
 
 const button = tv({
@@ -13,7 +13,7 @@ const button = tv({
 
 export type Theme = VariantProps<typeof button>['theme'];
 
-export type ActionButtonProps = ComponentProps<'button'> & {
+export type ActionButtonProps = ComponentPropsWithoutRef<'button'> & {
   children: ReactNode;
   theme?: Theme;
 };
