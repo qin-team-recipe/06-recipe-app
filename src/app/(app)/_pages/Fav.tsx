@@ -1,16 +1,16 @@
 import { TopBar } from '@/app/(app)/_components/TopBar';
 import { Icons } from '@/components/Icons';
-import { Chef } from '@/types';
+import { Chef, Recipe } from '@/types';
 import Link from 'next/link';
 import { ChefList } from '../_components/ChefList';
-import { HorizontalScrollArea } from '../_components/HorizontalScrollArea';
 import { RecipeList } from '../_components/RecipeList';
 
 type FavProps = {
   chefData: Chef[];
+  recipeData: Recipe[];
 };
 
-export const Fav = ({ chefData }: FavProps) => {
+export const Fav = ({ chefData, recipeData }: FavProps) => {
   return (
     <>
       <TopBar variant="center">
@@ -31,11 +31,7 @@ export const Fav = ({ chefData }: FavProps) => {
               <span className="text-base font-bold text-mauve-9">もっとみる</span>
             </Link>
           </div>
-          <HorizontalScrollArea>
-            <div className="flex flex-row gap-x-4 px-4">
-              <RecipeList size="small" />
-            </div>
-          </HorizontalScrollArea>
+          <RecipeList direction="horizontal" recipeData={recipeData} />
         </section>
         <section className="space-y-3">
           <div className="flex flex-row items-center justify-between px-4">
@@ -44,9 +40,7 @@ export const Fav = ({ chefData }: FavProps) => {
               <span className="text-base font-bold text-mauve-9">マイレシピをみる</span>
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-4 px-4">
-            <RecipeList />
-          </div>
+          <RecipeList direction="vertical" recipeData={recipeData} />
         </section>
       </div>
     </>

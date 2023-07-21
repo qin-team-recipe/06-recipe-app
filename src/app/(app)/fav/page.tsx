@@ -38,8 +38,35 @@ const dummyChefData = [
   },
 ];
 
+const dummyRecipeData = [
+  {
+    id: crypto.randomUUID(),
+    name: '定番レシピA',
+    description: '短い説明文',
+    favorite: 100,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: '定番レシピB',
+    description: '少し長めの説明文',
+    favorite: 0,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: '少しタイトルが長めの定番レシピC',
+    description: '少し長めの説明文少し長めの説明文少し長めの説明文',
+    favorite: 36,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'タイトルがそこそこ長めの大人気定番レシピC',
+    description: '少し長めの説明文少し長めの説明文少し長めの説明文',
+    favorite: 200,
+  },
+];
+
 const Home = () => {
-  return <Fav chefData={dummyChefData} />;
+  return <Fav chefData={dummyChefData} recipeData={dummyRecipeData} />;
 };
 
 export default Home;

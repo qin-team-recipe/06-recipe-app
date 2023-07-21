@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { VariantProps, tv } from 'tailwind-variants';
 import { FavCount } from '../FavCount';
@@ -5,15 +6,16 @@ import { FavCount } from '../FavCount';
 const recipeListItem = tv({
   slots: {
     wrapper: 'flex flex-col',
-    base: 'overflow-hidden rounded-2xl shadow-inner',
-    img: 'relative aspect-square bg-mauve-4',
+    base: 'overflow-hidden rounded-2xl shadow-smallInner',
+    img: 'relative aspect-square',
   },
   variants: {
-    size: {
-      small: {
+    direction: {
+      horizontal: {
         wrapper: 'w-32',
         img: 'h-full w-full',
       },
+      vertical: {},
     },
   },
 });
@@ -21,21 +23,34 @@ const recipeListItem = tv({
 export type RecipeListItemVariant = VariantProps<typeof recipeListItem>;
 
 type RecipeListItemProps = {
-  size?: RecipeListItemVariant['size'];
   id: string;
   name: string;
   description: string;
   favorite: number;
   image?: string;
+  direction: RecipeListItemVariant['direction'];
 };
 
-export const RecipeListItem = ({ id, size, name, description, favorite }: RecipeListItemProps) => {
-  const { wrapper, base, img } = recipeListItem({ size });
+export const RecipeListItem = ({
+  id,
+  direction,
+  name,
+  description,
+  favorite,
+  image,
+}: RecipeListItemProps) => {
+  const { wrapper, base, img } = recipeListItem({ direction });
   return (
     <Link href={`/recipe/${id}`} className={wrapper()}>
       <div className={base()}>
         <div className={img()}>
-          {/* <Image src={image} fill style={{ objectFit: 'cover' }} alt={name} /> */}
+          <Image
+            className="z-[-1]"
+            src={image ?? '/assets/images/sample/recipe-sample.png'}
+            fill
+            style={{ objectFit: 'cover' }}
+            alt={name}
+          />
           {favorite > 0 ? <FavCount favorite={favorite} /> : null}
         </div>
       </div>
