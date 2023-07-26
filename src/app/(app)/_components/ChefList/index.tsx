@@ -15,7 +15,7 @@ export const ChefList = ({ chefData, shape }: HorizontalChefListProps) => {
       <div className="space-y-4">
         {chefData.map(({ id, name, description, recipeCount }) => (
           <>
-            <div className="flex h-28 w-full flex-row items-start gap-x-4">
+            <div className="flex h-28 w-full flex-row items-start gap-x-4 px-4">
               <ChefListItem shape="verticalRectangle" key={id} id={id} name={name} />
               <ChefInfo name={name} description={description} recipeCount={recipeCount} />
             </div>

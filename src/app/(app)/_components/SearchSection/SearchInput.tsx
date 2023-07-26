@@ -1,4 +1,8 @@
+'use client';
 import { Icons } from '@/components/Icons';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context';
+import { useState } from 'react';
+import { useSearchDebounce } from '../../_hooks/useSearchDebounce';
 import { Input } from './Input';
 
 const Spinner = () => {
@@ -23,12 +27,22 @@ const SearchIcon = () => {
 type SearchInputProps = {
   searchWord: string;
   setSearchWord: React.Dispatch<React.SetStateAction<string>>;
-  loading: boolean;
+  router: AppRouterInstance;
 };
 
-export const SearchInput = ({ searchWord, setSearchWord, loading }: SearchInputProps) => {
+export const SearchInput = ({ searchWord, setSearchWord, router }: SearchInputProps) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const debounce = useSearchDebounce(1000);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchWord(e.target.value);
+    setIsLoading(true);
+    debounce(() => {
+      setIsLoading(false);
+      if (!e.target.value) return;
+      router.push(`/search/recipe?q=${e.target.value}`);
+    });
   };
 
   return (
@@ -40,7 +54,7 @@ export const SearchInput = ({ searchWord, setSearchWord, loading }: SearchInputP
         placeholder="シェフやレシピを検索"
         onChange={handleChange}
       />
-      {loading ? <Spinner /> : null}
+      {isLoading ? <Spinner /> : null}
     </div>
   );
 };
