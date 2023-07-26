@@ -14,7 +14,7 @@ export const HeroBackButton = () => {
         router.back();
       }}
     >
-      <Icons.HeroBackArrow className="h-8 w-8 stroke-mauve-1" strokeWidth={1.5} />
+      <Icons.BackArrow className="h-8 w-8 stroke-mauve-1" strokeWidth={1.5} />
     </button>
   );
 };
