@@ -1,10 +1,16 @@
-import { IconArrowLeft, IconSearch, IconToolsKitchen2 } from '@tabler/icons-react';
-import { ChefHat, Heart, Settings, ShoppingCart } from 'lucide-react';
+import {
+  IconArrowLeft,
+  IconHeart,
+  IconSearch,
+  IconShoppingCart,
+  IconToolsKitchen2,
+} from '@tabler/icons-react';
+import { ChefHat, Settings } from 'lucide-react';
 
 export const Icons = {
   Search: IconSearch,
-  Fav: Heart,
-  Cart: ShoppingCart,
+  Fav: IconHeart,
+  Cart: IconShoppingCart,
   Chef: ChefHat,
   Setting: Settings,
   ToolsKitchen2: IconToolsKitchen2,

@@ -5,7 +5,7 @@ import { VariantProps, tv } from 'tailwind-variants';
 const chefListItem = tv({
   slots: {
     base: 'contents',
-    imgWrapper: 'relative overflow-hidden',
+    imgWrapper: 'overflow-hidden',
     img: 'h-full w-full',
     label: 'text-xs text-mauve-12',
   },
@@ -14,12 +14,12 @@ const chefListItem = tv({
       circle: {
         base: 'flex w-20 flex-col gap-y-1 overflow-hidden',
         imgWrapper: 'h-20 w-20 rounded-full shadow-smallInner',
-        img: 'aspect-square ',
+        img: 'aspect-square',
         label: 'truncate text-center',
       },
       horizontalRectangle: {
         imgWrapper: 'h-40 w-36 rounded-2xl shadow-inner',
-        img: 'relative ',
+        img: 'relative',
         label:
           'absolute bottom-[10px] left-[8px] z-50 line-clamp-2 text-base font-semibold text-mauve-1',
       },
