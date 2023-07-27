@@ -1,5 +1,11 @@
 import {
   IconArrowLeft,
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandTiktok,
+  IconBrandTwitter,
+  IconBrandYoutube,
+  IconDotsCircleHorizontal,
   IconHeart,
   IconSearch,
   IconShoppingCart,
@@ -15,4 +21,10 @@ export const Icons = {
   Setting: Settings,
   ToolsKitchen2: IconToolsKitchen2,
   BackArrow: IconArrowLeft,
+  Youtube: IconBrandYoutube,
+  Instagram: IconBrandInstagram,
+  TikTok: IconBrandTiktok,
+  Twitter: IconBrandTwitter,
+  Facebook: IconBrandFacebook,
+  Detail: IconDotsCircleHorizontal,
 };
