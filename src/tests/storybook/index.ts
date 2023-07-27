@@ -1,0 +1,1 @@
+export { MainContentLayoutDecorator } from './decorator';
