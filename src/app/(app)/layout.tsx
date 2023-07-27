@@ -9,7 +9,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <div className="mx-auto flex min-h-screen w-full flex-col-reverse sm:bottom-auto sm:max-w-2xl sm:flex-row sm:gap-x-3 sm:px-4">
       <Navigation>
         <BottomNavBar>
-          <BottomNavItem label="さがす" href="/" icon={<Icons.Search />} />
+          <BottomNavItem label="見つける" href="/" icon={<Icons.Search />} />
           <BottomNavItem label="お気に入り" href="/fav" icon={<Icons.Fav />} />
           <BottomNavItem label="買い物リスト" href="/cart" icon={<Icons.Cart />} />
         </BottomNavBar>
