@@ -15,7 +15,7 @@ type SocialMediaNavProps = {
 };
 
 export const SocialMediaNav = ({ mediaLinks }: SocialMediaNavProps) => {
-  const getSocialMediaIcon = (type: string) => {
+  const getSocialMediaIcon = (type: SocialMedia) => {
     switch (type) {
       case 'youtube':
         return <Icons.Youtube className="h-6 w-6 stroke-mauve-12 stroke-[1.5]" />;
@@ -28,7 +28,7 @@ export const SocialMediaNav = ({ mediaLinks }: SocialMediaNavProps) => {
       case 'facebook':
         return <Icons.Facebook className="h-6 w-6 stroke-mauve-12 stroke-[1.5]" />;
       default:
-        return null;
+        return <Icons.OtherLink className="h-6 w-6 stroke-mauve-12 stroke-[1.5]" />;
     }
   };
 
@@ -39,26 +39,24 @@ export const SocialMediaNav = ({ mediaLinks }: SocialMediaNavProps) => {
   });
 
   const topTwoResults = sortedArray.slice(0, 2);
-  // const remainingResults = sortedArray.slice(2);
+  const remainingResults = sortedArray.slice(2);
 
-  return (
-    <>
-      <div className="flex flex-row items-center gap-x-3">
-        {topTwoResults.map(({ href, type }, index) =>
-          type !== 'other' ? (
-            <Link
-              key={index}
-              href={href}
-              className="outline-none ring-inset focus-visible:ring-2 focus-visible:ring-mauve-7"
-            >
-              {getSocialMediaIcon(type)}
-            </Link>
-          ) : null
-        )}
+  return sortedArray.length ? (
+    <div className="flex flex-row items-center gap-x-3">
+      {topTwoResults.map(({ href, type }, index) => (
+        <Link
+          key={index}
+          href={href}
+          className="outline-none ring-inset focus-visible:ring-2 focus-visible:ring-mauve-7"
+        >
+          {getSocialMediaIcon(type)}
+        </Link>
+      ))}
+      {remainingResults.length ? (
         <button className="outline-none ring-inset focus-visible:ring-2 focus-visible:ring-mauve-7">
           <Icons.Detail className="h-6 w-6 stroke-mauve-12 stroke-[1.5]" />
         </button>
-      </div>
-    </>
-  );
+      ) : null}
+    </div>
+  ) : null;
 };

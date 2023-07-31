@@ -7,6 +7,7 @@ import {
   IconBrandYoutube,
   IconDotsCircleHorizontal,
   IconHeart,
+  IconLink,
   IconSearch,
   IconShoppingCart,
   IconToolsKitchen2,
@@ -26,5 +27,6 @@ export const Icons = {
   TikTok: IconBrandTiktok,
   Twitter: IconBrandTwitter,
   Facebook: IconBrandFacebook,
+  OtherLink: IconLink,
   Detail: IconDotsCircleHorizontal,
 };
