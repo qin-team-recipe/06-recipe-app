@@ -14,7 +14,7 @@ export const BackButton = ({ className, ...props }: BackButtonProps) => {
     <button
       {...props}
       className={cn(
-        'flex shrink-0 items-center px-2',
+        'flex shrink-0 items-center',
         'ring-inset focus-visible:ring-2 focus-visible:ring-mauve-7',
         className
       )}

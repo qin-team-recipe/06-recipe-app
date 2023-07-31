@@ -4,4 +4,5 @@ export type Chef = {
   image?: string;
   description: string;
   recipeCount: number;
+  followCount?: number;
 };
