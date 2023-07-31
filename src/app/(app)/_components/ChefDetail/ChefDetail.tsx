@@ -38,31 +38,29 @@ export const ChefDetail = ({
   mediaLinks,
 }: ChefDetailProps) => {
   return (
-    <>
-      <div className="px-4 pt-3">
-        <ChefDetailHeader mediaLinks={mediaLinks} />
-        <div className="mt-2 flex flex-row items-center justify-between gap-x-4">
-          <div>
-            <h2 className="text-2xl font-bold text-mauve-12">{name}</h2>
-            <div className="text-sm text-mauve-11">{id}</div>
-          </div>
-          <ChefCircleIcon image={image ?? ''} />
+    <div className="px-4 pt-3">
+      <ChefDetailHeader mediaLinks={mediaLinks} />
+      <div className="mt-2 flex flex-row items-center justify-between gap-x-4">
+        <div>
+          <h2 className="text-2xl font-bold text-mauve-12">{name}</h2>
+          <div className="text-sm text-mauve-11">{id}</div>
         </div>
-        <p className="mt-2 leading-6">{description}</p>
-        <div className="mt-2 flex flex-row gap-x-4 text-mauve-11">
-          <div className="text-sm">
-            <span className="font-bold">{recipeCount}</span>
-            <span className="ml-1">レシピ</span>
-          </div>
-          <div className="text-sm">
-            <span className="font-bold">{followCount}</span>
-            <span className="ml-1">フォロワー</span>
-          </div>
-        </div>
-        <ActionButton className="mt-4 w-full" theme="filled">
-          フォローする
-        </ActionButton>
+        <ChefCircleIcon image={image ?? ''} />
       </div>
-    </>
+      <p className="mt-2 leading-6">{description}</p>
+      <div className="mt-2 flex flex-row gap-x-4 text-mauve-11">
+        <div className="text-sm">
+          <span className="font-bold">{recipeCount}</span>
+          <span className="ml-1">レシピ</span>
+        </div>
+        <div className="text-sm">
+          <span className="font-bold">{followCount}</span>
+          <span className="ml-1">フォロワー</span>
+        </div>
+      </div>
+      <ActionButton className="mt-4 w-full" theme="filled">
+        フォローする
+      </ActionButton>
+    </div>
   );
 };
