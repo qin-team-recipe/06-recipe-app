@@ -5,7 +5,7 @@ const PRIORITY_ORDER = ['youtube', 'instagram', 'tiktok', 'twitter', 'facebook',
 
 type SocialMedia = (typeof PRIORITY_ORDER)[number];
 
-type MediaLink = {
+export type MediaLink = {
   href: string;
   type: SocialMedia;
 };
