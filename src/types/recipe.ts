@@ -3,4 +3,9 @@ export type Recipe = {
   name: string;
   description: string;
   favorite: number;
+  material?: RecipeMaterial[];
+};
+
+export type RecipeMaterial = {
+  body: string;
 };
