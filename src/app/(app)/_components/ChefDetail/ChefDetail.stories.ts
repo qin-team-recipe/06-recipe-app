@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ChefDetail } from './ChefDetail';
 
 const meta: Meta<typeof ChefDetail> = {
-  title: 'Components/ChefDetail',
+  title: 'Components/Chef/ChefDetail',
   component: ChefDetail,
   tags: ['autodocs'],
   decorators: [MainContentLayoutDecorator],
@@ -28,24 +28,24 @@ export const Primary: Story = {
       recipeCount: 123,
       followCount: 300,
       image: '/assets/images/sample/chef-sample.jpeg',
+      links: [
+        {
+          href: 'aaaaa',
+          type: 'instagram',
+        },
+        {
+          href: 'aaaaa',
+          type: 'tiktok',
+        },
+        {
+          href: 'aaaaa',
+          type: 'facebook',
+        },
+        {
+          href: 'hogehoge.com',
+          type: 'other',
+        },
+      ],
     },
-    mediaLinks: [
-      {
-        href: 'aaaaa',
-        type: 'instagram',
-      },
-      {
-        href: 'aaaaa',
-        type: 'tiktok',
-      },
-      {
-        href: 'aaaaa',
-        type: 'facebook',
-      },
-      {
-        href: 'hogehoge.com',
-        type: 'other',
-      },
-    ],
   },
 };
