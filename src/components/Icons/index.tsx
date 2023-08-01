@@ -12,6 +12,7 @@ import {
   IconShoppingCart,
   IconShoppingCartPlus,
   IconToolsKitchen2,
+  IconX,
 } from '@tabler/icons-react';
 import { ChefHat, Settings } from 'lucide-react';
 
@@ -22,6 +23,7 @@ export const Icons = {
   CartPlus: IconShoppingCartPlus,
   Chef: ChefHat,
   Setting: Settings,
+  XButton: IconX,
   ToolsKitchen2: IconToolsKitchen2,
   BackArrow: IconArrowLeft,
   Youtube: IconBrandYoutube,
