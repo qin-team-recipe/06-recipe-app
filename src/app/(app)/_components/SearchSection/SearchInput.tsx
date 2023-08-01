@@ -1,6 +1,7 @@
 'use client';
 import { Icons } from '@/components/Icons';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { useSearchDebounce } from '../../_hooks/useSearchDebounce';
 import { Input } from './Input';
@@ -25,23 +26,41 @@ const SearchIcon = () => {
 };
 
 type SearchInputProps = {
-  searchWord: string;
-  setSearchWord: React.Dispatch<React.SetStateAction<string>>;
+  defaultValue?: string;
   router: AppRouterInstance;
 };
 
-export const SearchInput = ({ searchWord, setSearchWord, router }: SearchInputProps) => {
+export const SearchInput = ({ router, defaultValue = '' }: SearchInputProps) => {
+  const [searchWord, setSearchWord] = useState<string>(defaultValue);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const pathname = usePathname();
 
   const debounce = useSearchDebounce(1000);
+
+  const isRootPath = pathname === '/';
+
+  const CURRENT_PATH_NAME = `/search/${
+    pathname?.startsWith('/search/recipe') || isRootPath ? 'recipe' : 'chef'
+  }`;
+
+  const handleDeleteButton = () => {
+    setSearchWord('');
+    router.push(CURRENT_PATH_NAME);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchWord(e.target.value);
     setIsLoading(true);
     debounce(() => {
       setIsLoading(false);
-      if (!e.target.value) return;
-      router.push(`/search/recipe?q=${e.target.value}`);
+      if (isRootPath) {
+        if (!e.target.value) return;
+        router.push(`${CURRENT_PATH_NAME}?q=${e.target.value}`);
+      } else {
+        router.push(
+          e.target.value ? `${CURRENT_PATH_NAME}?q=${e.target.value}` : CURRENT_PATH_NAME
+        );
+      }
     });
   };
 
@@ -54,6 +73,11 @@ export const SearchInput = ({ searchWord, setSearchWord, router }: SearchInputPr
         placeholder="シェフやレシピを検索"
         onChange={handleChange}
       />
+      {!(isRootPath || isLoading || searchWord === '') ? (
+        <button className="absolute inset-y-0 right-2" onClick={handleDeleteButton}>
+          <Icons.XButton className="h-6 w-6 stroke-mauve-11 stroke-[1.5]" />
+        </button>
+      ) : null}
       {isLoading ? <Spinner /> : null}
     </div>
   );
