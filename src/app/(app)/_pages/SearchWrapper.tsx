@@ -25,7 +25,7 @@ export const SearchWrapper = ({ children }: SearchWrapperProps) => {
   ];
 
   return (
-    <>
+    <div>
       <SearchSection defaultValue={query ?? ''} isBackButton={true} />
       <TabBar
         tablist={tabList}
@@ -33,6 +33,6 @@ export const SearchWrapper = ({ children }: SearchWrapperProps) => {
       >
         {children}
       </TabBar>
-    </>
+    </div>
   );
 };

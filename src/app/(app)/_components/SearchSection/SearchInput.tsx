@@ -39,13 +39,13 @@ export const SearchInput = ({ router, defaultValue = '' }: SearchInputProps) => 
 
   const isRootPath = pathname === '/';
 
-  const CURRENT_PATH_NAME = `/search/${
+  const currentPathName = `/search/${
     pathname?.startsWith('/search/recipe') || isRootPath ? 'recipe' : 'chef'
   }`;
 
   const handleDeleteButton = () => {
     setSearchWord('');
-    router.push(CURRENT_PATH_NAME);
+    router.push(currentPathName);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,11 +55,9 @@ export const SearchInput = ({ router, defaultValue = '' }: SearchInputProps) => 
       setIsLoading(false);
       if (isRootPath) {
         if (!e.target.value) return;
-        router.push(`${CURRENT_PATH_NAME}?q=${e.target.value}`);
+        router.push(`${currentPathName}?q=${e.target.value}`);
       } else {
-        router.push(
-          e.target.value ? `${CURRENT_PATH_NAME}?q=${e.target.value}` : CURRENT_PATH_NAME
-        );
+        router.push(e.target.value ? `${currentPathName}?q=${e.target.value}` : currentPathName);
       }
     });
   };
