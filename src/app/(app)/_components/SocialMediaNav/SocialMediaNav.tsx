@@ -1,14 +1,6 @@
 import { Icons } from '@/components/Icons';
+import { MediaLink, PRIORITY_ORDER, type SocialMedia } from '@/types';
 import Link from 'next/link';
-
-const PRIORITY_ORDER = ['youtube', 'instagram', 'tiktok', 'twitter', 'facebook', 'other'] as const;
-
-type SocialMedia = (typeof PRIORITY_ORDER)[number];
-
-export type MediaLink = {
-  href: string;
-  type: SocialMedia;
-};
 
 type SocialMediaNavProps = {
   mediaLinks: MediaLink[];
