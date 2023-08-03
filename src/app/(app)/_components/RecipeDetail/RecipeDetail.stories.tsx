@@ -1,10 +1,10 @@
 import { MainContentLayoutDecorator } from '@/tests/storybook';
 import type { Meta, StoryObj } from '@storybook/react';
-import { ChefDetail } from './ChefDetail';
+import { RecipeDetail } from '.';
 
-const meta: Meta<typeof ChefDetail> = {
-  title: 'Components/Chef/ChefDetail',
-  component: ChefDetail,
+const meta: Meta<typeof RecipeDetail> = {
+  title: 'Components/Recipe/RecipeDetail',
+  component: RecipeDetail,
   tags: ['autodocs'],
   decorators: [MainContentLayoutDecorator],
   parameters: {
@@ -16,7 +16,7 @@ const meta: Meta<typeof ChefDetail> = {
 
 export default meta;
 
-type Story = StoryObj<typeof ChefDetail>;
+type Story = StoryObj<typeof RecipeDetail>;
 
 export const Primary: Story = {
   args: {
@@ -46,6 +46,15 @@ export const Primary: Story = {
           type: 'other',
         },
       ],
+    },
+    recipeData: {
+      id: crypto.randomUUID(),
+      name: 'グラタングラタングラタングラタングラタン',
+      description:
+        'はじめてでも失敗なく作れるような、鶏肉や玉ねぎを具とした基本的なマカロニグラタンのレシピです。ソースと具材炒めを別器具で行うレシピも多いですが、グラタンの具を炒めたフライパンの中で、そのままホワイトソースを仕上げる手軽な作り方にしています。ぜひお試しください。',
+      favorite: 100,
+      image: '/assets/images/sample/chef-sample.jpeg',
+      createdBy: crypto.randomUUID(),
     },
   },
 };

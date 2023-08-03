@@ -1,14 +1,14 @@
 import { ActionButton } from '@/components/ActionButton';
 import { BackButton } from '@/components/BackButton';
-import { Chef } from '@/types';
+import { Chef, MediaLink } from '@/types';
 import Image from 'next/image';
-import { MediaLink, SocialMediaNav } from '../SocialMediaNav';
+import { SocialMediaNav } from '../SocialMediaNav';
 
-const ChefDetailHeader: React.FC<{ mediaLinks: MediaLink[] }> = ({ mediaLinks }) => {
+const ChefDetailHeader: React.FC<{ links: MediaLink[] }> = ({ links }) => {
   return (
     <div className="flex w-full justify-between">
       <BackButton />
-      <SocialMediaNav mediaLinks={mediaLinks} />
+      <SocialMediaNav mediaLinks={links} />
     </div>
   );
 };
@@ -30,16 +30,14 @@ const ChefCircleIcon: React.FC<{ image: string }> = ({ image }) => {
 
 export type ChefDetailProps = {
   chefData: Chef;
-  mediaLinks: MediaLink[];
 };
 
 export const ChefDetail = ({
-  chefData: { name, id, image, description, recipeCount, followCount },
-  mediaLinks,
+  chefData: { name, id, image, description, recipeCount, followCount, links },
 }: ChefDetailProps) => {
   return (
     <div className="px-4 pt-3">
-      <ChefDetailHeader mediaLinks={mediaLinks} />
+      <ChefDetailHeader links={links ?? []} />
       <div className="mt-2 flex flex-row items-center justify-between gap-x-4">
         <div>
           <h2 className="text-2xl font-bold text-mauve-12">{name}</h2>

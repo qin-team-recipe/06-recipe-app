@@ -2,7 +2,6 @@
 
 import { BackButton } from '@/components/BackButton';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 import { SearchInput } from './SearchInput';
 
 type SearchSectionProps = {
@@ -12,12 +11,11 @@ type SearchSectionProps = {
 
 export const SearchSection = ({ defaultValue = '', isBackButton = false }: SearchSectionProps) => {
   const router = useRouter();
-  const [searchWord, setSearchWord] = useState<string>(defaultValue);
 
   return (
     <div className="flex px-4 py-2">
-      {isBackButton ? <BackButton /> : null}
-      <SearchInput searchWord={searchWord} setSearchWord={setSearchWord} router={router} />
+      {isBackButton ? <BackButton className="px-2" /> : null}
+      <SearchInput defaultValue={defaultValue} router={router} />
     </div>
   );
 };

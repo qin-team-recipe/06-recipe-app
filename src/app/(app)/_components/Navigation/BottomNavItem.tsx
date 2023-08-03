@@ -33,7 +33,17 @@ const iconStyle = tv({
 
 export const BottomNavItem = ({ label, href, icon }: BottomNavItemProps) => {
   const pathname = usePathname();
-  const isActive = pathname === href;
+
+  const getActive = (label: string) => {
+    switch (label) {
+      case '見つける':
+        return pathname?.startsWith('/search') || pathname === href;
+      default:
+        return pathname === href;
+    }
+  };
+
+  const isActive = getActive(label);
 
   return (
     <li className="flex-1">

@@ -13,7 +13,7 @@ const chefListItem = tv({
     shape: {
       circle: {
         base: 'flex w-20 flex-col gap-y-1 overflow-hidden',
-        imgWrapper: 'h-20 w-20 rounded-full shadow-smallInner',
+        imgWrapper: 'relative h-20 w-20 rounded-full shadow-smallInner',
         img: 'aspect-square',
         label: 'truncate text-center',
       },
